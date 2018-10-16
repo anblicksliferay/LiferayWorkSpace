@@ -109,7 +109,7 @@ public class CLAUpdateKpiPortlet extends MVCPortlet {
 		    		    long companyId = ParamUtil.getLong(resourceRequest, "company");
 		    		    long year = ParamUtil.getLong(resourceRequest, "year");
 		    		    if(companyId > 0 && year > 0) {
-		    		    AstraPdca_CompanyData companyData = AstraPdca_CompanyDataLocalServiceUtil.getAstraPdca_CompanyData(companyId);
+		    		 //   AstraPdca_CompanyData companyData = AstraPdca_CompanyDataLocalServiceUtil.getAstraPdca_CompanyData(companyId);
 		    		    DynamicQuery dynamicQuery_kpi = kpiLocalServiceUtil.dynamicQuery();
 						Criterion criterion = null;
 						criterion = RestrictionsFactoryUtil.eq("companyId", ParamUtil.getLong(resourceRequest, "company"));
@@ -117,7 +117,7 @@ public class CLAUpdateKpiPortlet extends MVCPortlet {
 						dynamicQuery_kpi.add(criterion);
 		    	        List <kpi> list_kpis = kpiLocalServiceUtil.dynamicQuery(dynamicQuery_kpi);
 		    	        
-		    	        PdfUtils.getCompany_Kpis_PdfUrl(list_kpis,companyData,resourceRequest,resourceResponse);
+		    	        PdfUtils.getCompany_Kpis_PdfUrl(list_kpis,resourceRequest,resourceResponse);
 		    	
 		    		    logger.info(">>>>>>>>>>"+list_kpis);
 		    		}

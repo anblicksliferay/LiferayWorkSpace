@@ -45,7 +45,7 @@ import com.liferay.util.ContentUtil;
 
 public class PdfUtils {
 	
-	public static final String DEST = "E:/External/html_table_2.pdf";
+	public static final String DEST = "E:/html_table_2.pdf";
     public static final String CSS = "table, th, td { border: 1px solid black; border-collapse: collapse; } th, td { padding: 5px; text-align: left; } tr#financial,#strategies { background-color: #FCFC8F; }";
 	
 	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
@@ -53,7 +53,7 @@ public class PdfUtils {
 	private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);
 	private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
 
-	public static void getCompany_Kpis_PdfUrl(List<kpi> list_kpis, AstraPdca_CompanyData companyData, ResourceRequest resourceRequest, ResourceResponse resourceResponse) throws IOException, DocumentException {
+	public static void getCompany_Kpis_PdfUrl(List<kpi> list_kpis, ResourceRequest resourceRequest, ResourceResponse resourceResponse) throws IOException, DocumentException {
 		
 	//	getpdffile(resourceRequest,resourceResponse);
 		

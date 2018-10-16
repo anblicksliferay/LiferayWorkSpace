@@ -3,18 +3,22 @@
 <head>
 <style>
 table,th,td {
-    border: 1px solid black;
+    border: 1px soild black;
 	border-collapse: collapse;
 }
 th, td {
     padding: 5px;
-    text-align: left;    
+    text-align: center;    
 }
 #financial,#strategies {
 	background-color: #FCFC8F;
+	
 }
+
 td p{
-	text-align:center;
+    
+    font-size: 10px !important;
+
 }
 
 </style>
@@ -25,7 +29,7 @@ td p{
 <h3>[Group Name]</h3>
 <h4>Company Key Performance Indicator</h4>
 
-<table id="tb1" style="width:100%;">
+<table style="width:100%;">
   <tr>
 	<th>S.No</th>
 	<th>Item Description</th>
@@ -35,7 +39,7 @@ td p{
 	<th>Achivement Formula</th>
   </tr>
   <tr id="financial">
-    <th colspan="6">FINANCIAL</th>
+    <th colspan="6" style="text-align:left !important;">FINANCIAL</th>
   </tr>
   <tr>
     <td>1</td>
@@ -46,7 +50,7 @@ td p{
     <td></td>
   </tr>
   <tr id="strategies">
-    <th colspan="6" background-color=#f1f1c1>STRATEGIES</th>
+    <th colspan="6" style="text-align:left !important;">STRATEGIES</th>
   </tr>
   <tr>
     <td>1</td>
@@ -76,32 +80,22 @@ td p{
 
 <h4>Jagarta,[Date]</h4>
 
-</div>
+<br/><br/>
+<table style="width:100%; border: 0 !important;">
+<tr>
+<td style="border: 0 !important;"><p>[LeftUp SignName]<br/>[LeftUp SignPosition]<br/>[LeftUp SignGroupName]</p></td>
+<td style="border: 0 !important;"><p>[MiddleUp SignName]<br/>[MiddleUp SignPosition]<br/>[MiddleUp SignGroupName]</p></td>
+<td style="border: 0 !important;"><p>[RightUp SignName]<br/>[RightUp SignPosition]<br/>[RightUp SignGroupName]</p></td>
+</tr>
+</table>
 <br/><br/><br/>
-<div style="width:100%;">
-	<div style="width:33.3%; float:left;">
-		<p>
-		Gopala Krishna<br/>
-		Kranti<br/>
-		Abhilash
-		</p>
-	</div>
-	<div style="width:33.3%; margin:0 auto;">
-		<p>
-		Gopala Krishna<br/>
-		Kranti<br/>
-		Abhilash
-		</p>
-	</div>
-	<div style="width:33.3%; float:right;">
-		<p>
-		Gopala Krishna<br/>
-		Kranti<br/>
-		Abhilash
-		</p>
-	</div>
+<table style="width:100%; border: 0 !important;">
+<tr>
+<td style="border: 0 !important;"><p>[LeftDown SignName]<br/>[LeftDown SignPosition]<br/>[LeftDown SignGroupName]</p></td>
+<td style="border: 0 !important;"><p>[MiddleDown SignName]<br/>[MiddleDown SignPosition]<br/>[MiddleDown SignGroupName]</p></td>
+<td style="border: 0 !important;"><p>[RightDown SignName]<br/>[RightDown SignPosition]<br/>[RightDown SignGroupName]</p></td>
+</tr>
+</table>
 </div>
-<br/><br/><br/>
-
 </body>
 </html>
