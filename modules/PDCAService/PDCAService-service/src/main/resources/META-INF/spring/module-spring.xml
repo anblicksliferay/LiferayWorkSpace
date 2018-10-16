@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.astra.anblicks.pdca.service.impl.achivementFormulaLocalServiceImpl" id="com.astra.anblicks.pdca.service.achivementFormulaLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.achivementFormulaServiceImpl" id="com.astra.anblicks.pdca.service.achivementFormulaService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.achivementFormulaPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.achivementFormulaPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_CompanyDataLocalServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_CompanyDataLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_CompanyDataServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_CompanyDataService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.AstraPdca_CompanyDataPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.AstraPdca_CompanyDataPersistence" parent="basePersistence" />
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_ModuleLocalServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_ModuleLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_ModuleServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_ModuleService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.AstraPdca_ModulePersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.AstraPdca_ModulePersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_YearLocalServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_YearLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.AstraPdca_YearServiceImpl" id="com.astra.anblicks.pdca.service.AstraPdca_YearService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.AstraPdca_YearPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.AstraPdca_YearPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.cla_kpiLocalServiceImpl" id="com.astra.anblicks.pdca.service.cla_kpiLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.cla_kpiServiceImpl" id="com.astra.anblicks.pdca.service.cla_kpiService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.cla_kpiPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.cla_kpiPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.companyLocalServiceImpl" id="com.astra.anblicks.pdca.service.companyLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.companyServiceImpl" id="com.astra.anblicks.pdca.service.companyService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.companyPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.companyPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.company_userLocalServiceImpl" id="com.astra.anblicks.pdca.service.company_userLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.company_userServiceImpl" id="com.astra.anblicks.pdca.service.company_userService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.company_userPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.company_userPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.itemDescriptionLocalServiceImpl" id="com.astra.anblicks.pdca.service.itemDescriptionLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.itemDescriptionServiceImpl" id="com.astra.anblicks.pdca.service.itemDescriptionService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.itemDescriptionPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.itemDescriptionPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.kpiLocalServiceImpl" id="com.astra.anblicks.pdca.service.kpiLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.kpiServiceImpl" id="com.astra.anblicks.pdca.service.kpiService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.kpiPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.kpiPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.pdca_AdminSettingsLocalServiceImpl" id="com.astra.anblicks.pdca.service.pdca_AdminSettingsLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.pdca_AdminSettingsServiceImpl" id="com.astra.anblicks.pdca.service.pdca_AdminSettingsService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.pdca_AdminSettingsPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.pdca_AdminSettingsPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.periodLocalServiceImpl" id="com.astra.anblicks.pdca.service.periodLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.periodServiceImpl" id="com.astra.anblicks.pdca.service.periodService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.periodPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.periodPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.tradingProfitLocalServiceImpl" id="com.astra.anblicks.pdca.service.tradingProfitLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.tradingProfitServiceImpl" id="com.astra.anblicks.pdca.service.tradingProfitService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.tradingProfitPersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.tradingProfitPersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+	<bean class="com.astra.anblicks.pdca.service.impl.typeLocalServiceImpl" id="com.astra.anblicks.pdca.service.typeLocalService" />
+	<bean class="com.astra.anblicks.pdca.service.impl.typeServiceImpl" id="com.astra.anblicks.pdca.service.typeService" />
+	<bean class="com.astra.anblicks.pdca.service.persistence.impl.typePersistenceImpl" id="com.astra.anblicks.pdca.service.persistence.typePersistence" parent="basePersistence">
+		<property name="dataSource" ref="extDataSource" />
+	</bean>
+</beans>

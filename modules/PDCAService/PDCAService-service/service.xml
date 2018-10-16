@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.astra.anblicks.pdca">
+
+	<namespace>pdca</namespace>
+	
+	<!-- LookUp Tables for Static Data -->
+	
+	<entity local-service="true" name="type" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="typeId" primary="true" type="long" />
+	   <column name="typeName" type="String" />
+	</entity>
+	
+	
+	<entity local-service="true" name="itemDescription" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="itemDescriptionId" primary="true" type="long" />
+	   <column name="itemDescriptionName" type="String" />
+	</entity>
+	
+	
+	<entity local-service="true" name="achivementFormula" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="achivementFormulaId" primary="true" type="long" />
+	   <column name="achivementFormula" type="String" />
+	   <column name="itemDescriptionId" type="long" />
+	</entity>
+	
+	
+	<entity local-service="true" name="period" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="periodId" primary="true" type="long" />
+	   <column name="periodName" type="String" />
+	</entity>
+	
+	
+	<entity local-service="true" name="tradingProfit" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="tradingProfitId" primary="true" type="long" />
+	   <column name="periodId" type="long" />
+	   <column name="companyId" type="long" />
+	   <column name="year" type="long" />
+	   <column name="npat" type="double" />
+	   <column name="netForex" type="double" />
+	   <column name="ppeDispos" type="double" />
+	   <column name="revalutionOnPropertyInvestment" type="double" />
+	   <column name="investment" type="double" />
+	   <column name="taxExpense" type="double" />
+	   <column name="impairmentOnAsset" type="double" />
+	   <column name="others" type="double" />
+	</entity>
+	
+	<!-- End of LookUp Tables -->
+	
+	<!-- Master Tables For CLA Module -->
+	
+	<entity local-service="true" name="kpi" remote-service="true" data-source="extDataSource" uuid="true">
+	   <column name="kpiId" primary="true" type="long" />
+	   <column name="companyId" type="long" />
+	   <column name="typeId" type="long" />
+	   <column name="weight" type="long" />
+	   <column name="target" type="long" />
+	   <column name="year" type="long" />
+	   <column name="unit" type="String" />
+	   <column name="achivementFormulaId" type="long" />
+	   <column name="itemDescriptionName" type="String" />
+	   
+	   	   
+	   <!-- Audit fields for User-->
+	   
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+	</entity>
+	
+	<entity local-service="true" name="cla_kpi" remote-service="true" data-source="extDataSource" uuid="true">
+	    <column name="claKpiId" primary="true" type="long" />
+	    <column name="kpiId" type="long" />
+	    <column name="periodId" type="long" />
+	    <column name="ytd" type="long" />
+	    <column name="ol" type="double" />
+	    <column name="claPoint" type="double" />
+	    <column name="achivement" type="double" />
+	</entity>
+	
+	<!-- End Of Master Tables Of CLA Module -->
+	
+	<!-- Assume Sample Company Table -->
+	<entity local-service="true" name="company" remote-service="true" data-source="extDataSource" uuid="true">
+	    <column name="companyId" primary="true" type="long" />
+	    <column name="companyName" type="String" />
+	</entity>
+	
+	<!-- End of Company Table -->
+	
+		<!-- End of Company Table -->
+	
+	<entity local-service="true" name="AstraPdca_CompanyData" remote-service="true" >
+	<column name="companyId" type="long" primary="true"></column>
+	<column name="CompanyCode" type="String"></column>
+	<column name="CompanyName" type="String"></column>
+	<column name="GroupName" type="String"></column>
+	<column name="DIC" type="String"></column>
+	<column name="DICINITIAL" type="String"></column>
+	<column name="LEFTUP" type="String"></column>
+	<column name="LEFTUPTITLE" type="String"></column>
+	<column name="LEFTUPCOMPANY" type="String"></column>
+	<column name="LEFTBOTTOM" type="String"></column>
+	<column name="LEFTBOTTOMTITLE" type="String"></column>
+	<column name="LEFTBOTTOMCOMPANY" type="String"></column>
+	<column name="MIDUP" type="String"></column>
+	<column name="MIDUPTITLE" type="String"></column>
+	<column name="MIDUPCOMPANY" type="String"></column>
+	<column name="MIDBOTTOM" type="String"></column>
+	<column name="MIDBOTTOMTITLE" type="String"></column>
+	<column name="MIDBOTTOMCOMPANY" type="String"></column>
+	<column name="RIGHTUP" type="String"></column>
+	<column name="RIGHTUPTITLE" type="String"></column>
+	<column name="RIGHTUPCOMPANY" type="String"></column>
+	<column name="RIGHTBOTTOM" type="String"></column>
+	<column name="RIGHTBOTTOMTITLE" type="String"></column>
+	<column name="RIGHTBOTTOMCOMPANY" type="String"></column>
+	<column name="ModuleId" type="long"></column>  <!-- //this column should map pdca_moudule teable -->
+	<column name="YearId" type="long"></column>  <!-- //this column should map pdca_year teable -->
+	<column name="CheckFlag" type="String"></column>
+	
+	<!-- Aduit columns -->
+	<column name="SiteId" type="long"></column>
+	<column name="CreateDate" type="Date"></column>
+	<column name="CreatedBy" type="String"></column>
+	<column name="ModifiedDate" type="Date"></column>
+	<column name="ModifiedBy" type="String"></column>
+	</entity>
+	
+		<entity local-service="true" name="AstraPdca_Year" remote-service="true" data-source="extDataSource" >
+		 
+		 <column name="YearId" type="long" primary="true" ></column>
+		 <column name="YearId_Company" type="long"></column>   <!-- mapped column to "AstraPdca_CompanyData" table -->
+          <column name="Year" type="long"></column>
+	<!-- Aduit columns -->
+	<column name="SiteId" type="long"></column>
+	<column name="CreateDate" type="Date"></column>
+	<column name="CreatedBy" type="String"></column>
+	<column name="ModifiedDate" type="Date"></column>
+	<column name="ModifiedBy" type="String"></column>
+		</entity>
+	<entity local-service="true" name="AstraPdca_Module" remote-service="true" data-source="extDataSource" >
+		 
+		 <column name="ModuleId" type="long" primary="true" ></column>
+		 <column name="ModuleId_Company" type="long"></column>   <!-- mapped column to "AstraPdca_CompanyData" table -->
+          <column name="ModuleName" type="String"></column>
+          <column name="checkUncheckFlag" type="String"></column>
+	<!-- Aduit columns -->
+	<column name="SiteId" type="long"></column>
+	<column name="CreateDate" type="Date"></column>
+	<column name="CreatedBy" type="String"></column>
+	<column name="ModifiedDate" type="Date"></column>
+	<column name="ModifiedBy" type="String"></column>
+		</entity>
+	
+	
+	
+	<!-- Mamny to Many Relationship  -->
+	<entity name="company_user" local-service="true" remote-service="true"  data-source="extDataSource">
+	<column name="company_user_Id" type="long" primary="true"></column>
+	<column name="companyId" type="long" ></column>
+	<column name="Pdca_userId" type="long"></column>
+	
+	<finder return-type="collection" name="getByUserList">
+	<finder-column name="companyId"></finder-column>
+	</finder>
+	
+	<finder return-type="collection" name="getByCompanyList">
+	<finder-column name="companyId"></finder-column>
+	</finder>
+	
+	</entity>
+	
+	<entity name="pdca_AdminSettings" local-service="true" remote-service="true"  data-source="extDataSource">
+	
+	
+	<column name="settings_Id" type="long" primary="true"></column>
+	<column name="moduleId" type="long"></column>
+	<column name="year" type="long"></column>
+	<column name="companyId" type="long"></column>
+<column name="periodId" type="long"></column>
+<!-- Aduit columns -->
+	<column name="SiteId" type="long"></column>
+	<column name="CreateDate" type="Date"></column>
+	<column name="CreatedBy" type="String"></column>
+	<column name="ModifiedDate" type="Date"></column>
+	<column name="ModifiedBy" type="String"></column>
+	</entity>
+	
+	
+	
+	
+</service-builder>
