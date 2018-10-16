@@ -15,14 +15,17 @@
  */
 package com.astra.anblicks.pdca.portlet;
 
+import com.astra.anblicks.pdca.model.AstraPdca_CompanyData;
 import com.astra.anblicks.pdca.model.cla_kpi;
 import com.astra.anblicks.pdca.model.kpi;
+import com.astra.anblicks.pdca.service.AstraPdca_CompanyDataLocalServiceUtil;
 import com.astra.anblicks.pdca.service.achivementFormulaLocalServiceUtil;
 import com.astra.anblicks.pdca.service.cla_kpiLocalServiceUtil;
 import com.astra.anblicks.pdca.service.companyLocalServiceUtil;
 import com.astra.anblicks.pdca.service.itemDescriptionLocalServiceUtil;
 import com.astra.anblicks.pdca.service.kpiLocalServiceUtil;
 import com.astra.anblicks.pdca.service.typeLocalServiceUtil;
+import com.astra.anblicks.pdca.utils.PdfUtils;
 import com.liferay.portal.kernel.dao.orm.Criterion;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
@@ -101,24 +104,30 @@ public class CLAUpdateKpiPortlet extends MVCPortlet {
 		    else if(cmd.equalsIgnoreCase("getTableDataOnchage")){
 		    	
 		    	 try {
-		    		    	logger.info(ParamUtil.getLong(resourceRequest, "company"));
-		    		    	logger.info(ParamUtil.getLong(resourceRequest, "year"));
+		    		    logger.info(ParamUtil.getLong(resourceRequest, "company"));
+		    		    logger.info(ParamUtil.getLong(resourceRequest, "year"));
+		    		    long companyId = ParamUtil.getLong(resourceRequest, "company");
+		    		    long year = ParamUtil.getLong(resourceRequest, "year");
+		    		    if(companyId > 0 && year > 0) {
+		    		    AstraPdca_CompanyData companyData = AstraPdca_CompanyDataLocalServiceUtil.getAstraPdca_CompanyData(companyId);
 		    		    DynamicQuery dynamicQuery_kpi = kpiLocalServiceUtil.dynamicQuery();
 						Criterion criterion = null;
 						criterion = RestrictionsFactoryUtil.eq("companyId", ParamUtil.getLong(resourceRequest, "company"));
 						criterion = RestrictionsFactoryUtil.or(criterion, RestrictionsFactoryUtil.eq("year", ParamUtil.getLong(resourceRequest, "year")));
 						dynamicQuery_kpi.add(criterion);
-						
-					
-		    	        List <kpi> list_kpi = kpiLocalServiceUtil.dynamicQuery(dynamicQuery_kpi);
+		    	        List <kpi> list_kpis = kpiLocalServiceUtil.dynamicQuery(dynamicQuery_kpi);
+		    	        
+		    	        PdfUtils.getCompany_Kpis_PdfUrl(list_kpis,companyData,resourceRequest,resourceResponse);
 		    	
-		    		logger.info(">>>>>>>>>>"+list_kpi);
+		    		    logger.info(">>>>>>>>>>"+list_kpis);
+		    		}
 		    		    	
 				} catch (Exception e) {
 					logger.error(e);
 					   JSONObject json = JSONFactoryUtil.createJSONObject();
 				        json.put("error", "storeDefault Unsuccessful");
-				        writeJSON(resourceRequest, resourceResponse, json);										}
+				        writeJSON(resourceRequest, resourceResponse, json);										
+				       }
 	     
 		    }
 		    
