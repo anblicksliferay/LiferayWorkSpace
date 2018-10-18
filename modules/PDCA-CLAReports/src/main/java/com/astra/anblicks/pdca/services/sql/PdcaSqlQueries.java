@@ -113,31 +113,26 @@ public class PdcaSqlQueries {
 	}
 	
 	
-public static void getCompanyDataBasedOnModuleId_UserId(Connection conn,long userId,long moduleId) {
+public static List<CompanyDataByUserDto> getCompanyDataBasedOnModuleId_UserId(Connection conn,long userId,long moduleId) {
 		
         QueryRunner queryRunner = new QueryRunner();
+        
+        List<CompanyDataByUserDto> userListByCompanies_ModuleId = new ArrayList<CompanyDataByUserDto>();
 
         ResultSetHandler<List<CompanyDataByUserDto>> resultHandler = new BeanListHandler<CompanyDataByUserDto>(CompanyDataByUserDto.class);
         try {
         	if(conn!=null){
-        	 String sql = "SELECT cu.Pdca_userId as userId,cu.companyId,ads.year,ads.periodId,ads.moduleId,'true' as flag from pdca_company_user cu,pdca_pdca_adminsettings ads where cu.companyId = ads.companyId and ads.moduleId = ? and cu.Pdca_userId = ? group by cu.Pdca_userId,cu.companyId";
-             
-     //        String sql1="SELECT pdca_company_user.Pdca_userId as userId,pdca_company_user.companyId as companyId,'' as year, '' as moduleId 'false' as flag"
-      //       		+ "from pdca_company_user where pdca_company_user.Pdca_userId = 20156 "
-      //       		+ "group by pdca_company_user.Pdca_userId,pdca_company_user.companyId;";
-     			List<CompanyDataByUserDto> query = queryRunner.query(conn,sql,resultHandler,moduleId,userId);
-     		//	List<CompanyDataByUserDto> query1 = queryRunner.query(conn, sql1, resultHandler,2,20156);
-     			System.out.println(query);
-     		//	System.out.println(query1);
+        	 String sql = "SELECT cu.Pdca_userId as userId,cu.companyId,ads.settings_Id,ads.year,ads.periodId,ads.moduleId,IF(ads.settings_Id is null, 'false', 'true') as flag from pdca_company_user cu LEFT OUTER JOIN pdca_pdca_adminsettings ads on cu.companyId = ads.companyId and ads.moduleId = ? where cu.Pdca_userId = ? group by cu.Pdca_userId,cu.companyId order by cu.companyId";
+        	 userListByCompanies_ModuleId = queryRunner.query(conn,sql,resultHandler,moduleId,userId);
+
+              
         	}
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 		}
-       
 		
-		
-		
+       return userListByCompanies_ModuleId;
 	}
 	
 	private static Map<Long, List<Reportdto>> MergeListstoMap(List<Reportdto> list1,
@@ -165,5 +160,7 @@ public static void getCompanyDataBasedOnModuleId_UserId(Connection conn,long use
 			.collect(Collectors.groupingBy(Reportdto::getCid));
 	
 	}
+	
+	
 
 }

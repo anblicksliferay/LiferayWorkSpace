@@ -87,10 +87,9 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = {
         "com.liferay.portlet.display-category=AstraPDCA",
-        "com.liferay.portlet.instanceable=false",
+        "com.liferay.portlet.instanceable=true",
         "javax.portlet.display-name=Reports",
         "javax.portlet.init-param.template-path=/",
-        "javax.portlet.name=" + PDCAPortletKeys.Cla_Reports,
         "javax.portlet.init-param.view-template=/view.jsp",
         "javax.portlet.resource-bundle=content.Language",
         "javax.portlet.security-role-ref=power-user,user"
@@ -107,15 +106,6 @@ public class CLAReportsPortlet extends MVCPortlet {
 
 	private static Log logger = LogFactoryUtil.getLog(CLAReportsPortlet.class.getName());
 	public static Connection conn = PdcaMySqlConnection.getConnection();
-	
-	
-	@Override
-	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
-			throws IOException, PortletException {
-		logger.info("doview");
-		PdcaSqlQueries.getCompanyDataBasedOnModuleId_UserId(conn, 20156, 2);
-		super.doView(renderRequest, renderResponse);
-	}
 	
 	
 	/** 
