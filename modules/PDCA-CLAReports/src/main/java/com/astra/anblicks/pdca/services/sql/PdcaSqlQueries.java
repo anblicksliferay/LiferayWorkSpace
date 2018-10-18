@@ -12,6 +12,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import com.astra.anblicks.pdca.dto.CompanyDataByUserDto;
 import com.astra.anblicks.pdca.dto.NamedObject;
 import com.astra.anblicks.pdca.dto.Reportdto;
 
@@ -109,6 +110,34 @@ public class PdcaSqlQueries {
 		}
         return MappedObjects;
 	
+	}
+	
+	
+public static void getCompanyDataBasedOnModuleId_UserId(Connection conn,long userId,long moduleId) {
+		
+        QueryRunner queryRunner = new QueryRunner();
+
+        ResultSetHandler<List<CompanyDataByUserDto>> resultHandler = new BeanListHandler<CompanyDataByUserDto>(CompanyDataByUserDto.class);
+        try {
+        	if(conn!=null){
+        	 String sql = "SELECT cu.Pdca_userId as userId,cu.companyId,ads.year,ads.periodId,ads.moduleId,'true' as flag from pdca_company_user cu,pdca_pdca_adminsettings ads where cu.companyId = ads.companyId and ads.moduleId = ? and cu.Pdca_userId = ? group by cu.Pdca_userId,cu.companyId";
+             
+     //        String sql1="SELECT pdca_company_user.Pdca_userId as userId,pdca_company_user.companyId as companyId,'' as year, '' as moduleId 'false' as flag"
+      //       		+ "from pdca_company_user where pdca_company_user.Pdca_userId = 20156 "
+      //       		+ "group by pdca_company_user.Pdca_userId,pdca_company_user.companyId;";
+     			List<CompanyDataByUserDto> query = queryRunner.query(conn,sql,resultHandler,moduleId,userId);
+     		//	List<CompanyDataByUserDto> query1 = queryRunner.query(conn, sql1, resultHandler,2,20156);
+     			System.out.println(query);
+     		//	System.out.println(query1);
+        	}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+       
+		
+		
+		
 	}
 	
 	private static Map<Long, List<Reportdto>> MergeListstoMap(List<Reportdto> list1,

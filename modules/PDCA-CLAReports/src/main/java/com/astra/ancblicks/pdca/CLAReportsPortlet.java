@@ -72,6 +72,8 @@ import java.util.Map;
 
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
@@ -106,6 +108,14 @@ public class CLAReportsPortlet extends MVCPortlet {
 	private static Log logger = LogFactoryUtil.getLog(CLAReportsPortlet.class.getName());
 	public static Connection conn = PdcaMySqlConnection.getConnection();
 	
+	
+	@Override
+	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+		logger.info("doview");
+		PdcaSqlQueries.getCompanyDataBasedOnModuleId_UserId(conn, 20156, 2);
+		super.doView(renderRequest, renderResponse);
+	}
 	
 	
 	/** 

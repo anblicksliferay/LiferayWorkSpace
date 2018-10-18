@@ -8,7 +8,7 @@ public class PDCAPortletKeys {
 	public static final String PDCA = "PDCA";
 	public static final String Administration = "AdministrationSettings";
 	public static final String Cla = "Cla";
-	public static final String Cla_Reports = "Reports";
+	public static final String Cla_Reports = "Reports1111111";
 	public static final String CompanyInitiatives = "CompanyInitiatives";
 	public static final String MasterData = "MasterData";
 	public static final String Mom = "MinutesOfMeeting";
