@@ -15,10 +15,22 @@
  */
 package com.astra.anblicks.pdca.portlet;
 
-import com.astra.anblicks.pdca.model.AstraPdca_CompanyData;
+import java.io.IOException;
+import java.util.List;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+import org.osgi.service.component.annotations.Component;
+
 import com.astra.anblicks.pdca.model.cla_kpi;
 import com.astra.anblicks.pdca.model.kpi;
-import com.astra.anblicks.pdca.service.AstraPdca_CompanyDataLocalServiceUtil;
 import com.astra.anblicks.pdca.service.achivementFormulaLocalServiceUtil;
 import com.astra.anblicks.pdca.service.cla_kpiLocalServiceUtil;
 import com.astra.anblicks.pdca.service.companyLocalServiceUtil;
@@ -38,20 +50,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.ParamUtil;
-
-import java.io.IOException;
-import java.util.List;
-
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
-import javax.portlet.Portlet;
-import javax.portlet.PortletException;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
-import javax.portlet.ResourceRequest;
-import javax.portlet.ResourceResponse;
-
-import org.osgi.service.component.annotations.Component;
 @Component(
 		immediate = true,
 		property = {

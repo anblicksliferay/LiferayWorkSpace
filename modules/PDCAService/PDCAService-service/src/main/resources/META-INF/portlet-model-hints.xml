@@ -7,6 +7,20 @@
 		<field name="achivementFormula" type="String" />
 		<field name="itemDescriptionId" type="long" />
 	</model>
+	<model name="com.astra.anblicks.pdca.model.addkpi_ci">
+		<field name="uuid" type="String" />
+		<field name="addKpiId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="year" type="long" />
+		<field name="strategyType" type="String" />
+		<field name="strategy" type="String" />
+		<field name="target" type="String" />
+		<field name="kpi" type="String" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
 	<model name="com.astra.anblicks.pdca.model.AstraPdca_CompanyData">
 		<field name="companyId" type="long" />
 		<field name="CompanyCode" type="String" />
@@ -61,6 +75,17 @@
 		<field name="CreatedBy" type="String" />
 		<field name="ModifiedDate" type="Date" />
 		<field name="ModifiedBy" type="String" />
+	</model>
+	<model name="com.astra.anblicks.pdca.model.ci_kpi">
+		<field name="uuid" type="String" />
+		<field name="ciKpiId" type="long" />
+		<field name="addKpiId" type="long" />
+		<field name="ciPeriodId" type="long" />
+		<field name="targetYTD" type="String" />
+		<field name="problemIdentification" type="String" />
+		<field name="proposedAction" type="String" />
+		<field name="achivement" type="String" />
+		<field name="status" type="String" />
 	</model>
 	<model name="com.astra.anblicks.pdca.model.cla_kpi">
 		<field name="uuid" type="String" />

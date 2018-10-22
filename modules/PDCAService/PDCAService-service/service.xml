@@ -190,6 +190,35 @@
 	<column name="ModifiedBy" type="String"></column>
 	</entity>
 	
+	<entity local-service="true" name="addkpi_ci" remote-service="true" data-source="extDataSource" uuid="true" table="addkpi_ci">
+	   <column name="addKpiId" primary="true" type="long" />
+	   <column name="companyId" type="long" />
+	   <column name="year" type="long" />
+	   <column name="strategyType" type="String" />
+	   <column name="strategy" type="String" />
+	   <column name="target" type="String" />
+	   <column name="kpi" type="String" />
+	   
+	   	   
+	   <!-- Audit fields for User-->
+	   
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+	</entity>
+	
+	<entity local-service="true" name="ci_kpi" remote-service="true" data-source="extDataSource" uuid="true" table="ci_kpi">
+	    <column name="ciKpiId" primary="true" type="long" />
+	    <column name="addKpiId" type="long" />
+	    <column name="ciPeriodId" type="long" />
+	    <column name="targetYTD" type="String" />
+	    <column name="problemIdentification" type="String" />
+	    <column name="proposedAction" type="String" />
+	    <column name="achivement" type="String" />
+	    <column name="status" type="String" />
+	</entity>
+	
 	
 	
 	

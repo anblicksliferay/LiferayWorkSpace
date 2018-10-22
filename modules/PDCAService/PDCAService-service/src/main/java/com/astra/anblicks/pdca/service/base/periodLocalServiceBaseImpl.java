@@ -22,6 +22,8 @@ import com.astra.anblicks.pdca.service.persistence.AstraPdca_CompanyDataPersiste
 import com.astra.anblicks.pdca.service.persistence.AstraPdca_ModulePersistence;
 import com.astra.anblicks.pdca.service.persistence.AstraPdca_YearPersistence;
 import com.astra.anblicks.pdca.service.persistence.achivementFormulaPersistence;
+import com.astra.anblicks.pdca.service.persistence.addkpi_ciPersistence;
+import com.astra.anblicks.pdca.service.persistence.ci_kpiPersistence;
 import com.astra.anblicks.pdca.service.persistence.cla_kpiPersistence;
 import com.astra.anblicks.pdca.service.persistence.companyPersistence;
 import com.astra.anblicks.pdca.service.persistence.company_userPersistence;
@@ -359,6 +361,44 @@ public abstract class periodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the addkpi_ci local service.
+	 *
+	 * @return the addkpi_ci local service
+	 */
+	public com.astra.anblicks.pdca.service.addkpi_ciLocalService getaddkpi_ciLocalService() {
+		return addkpi_ciLocalService;
+	}
+
+	/**
+	 * Sets the addkpi_ci local service.
+	 *
+	 * @param addkpi_ciLocalService the addkpi_ci local service
+	 */
+	public void setaddkpi_ciLocalService(
+		com.astra.anblicks.pdca.service.addkpi_ciLocalService addkpi_ciLocalService) {
+		this.addkpi_ciLocalService = addkpi_ciLocalService;
+	}
+
+	/**
+	 * Returns the addkpi_ci persistence.
+	 *
+	 * @return the addkpi_ci persistence
+	 */
+	public addkpi_ciPersistence getaddkpi_ciPersistence() {
+		return addkpi_ciPersistence;
+	}
+
+	/**
+	 * Sets the addkpi_ci persistence.
+	 *
+	 * @param addkpi_ciPersistence the addkpi_ci persistence
+	 */
+	public void setaddkpi_ciPersistence(
+		addkpi_ciPersistence addkpi_ciPersistence) {
+		this.addkpi_ciPersistence = addkpi_ciPersistence;
+	}
+
+	/**
 	 * Returns the astra pdca_ company data local service.
 	 *
 	 * @return the astra pdca_ company data local service
@@ -470,6 +510,43 @@ public abstract class periodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	public void setAstraPdca_YearPersistence(
 		AstraPdca_YearPersistence astraPdca_YearPersistence) {
 		this.astraPdca_YearPersistence = astraPdca_YearPersistence;
+	}
+
+	/**
+	 * Returns the ci_kpi local service.
+	 *
+	 * @return the ci_kpi local service
+	 */
+	public com.astra.anblicks.pdca.service.ci_kpiLocalService getci_kpiLocalService() {
+		return ci_kpiLocalService;
+	}
+
+	/**
+	 * Sets the ci_kpi local service.
+	 *
+	 * @param ci_kpiLocalService the ci_kpi local service
+	 */
+	public void setci_kpiLocalService(
+		com.astra.anblicks.pdca.service.ci_kpiLocalService ci_kpiLocalService) {
+		this.ci_kpiLocalService = ci_kpiLocalService;
+	}
+
+	/**
+	 * Returns the ci_kpi persistence.
+	 *
+	 * @return the ci_kpi persistence
+	 */
+	public ci_kpiPersistence getci_kpiPersistence() {
+		return ci_kpiPersistence;
+	}
+
+	/**
+	 * Sets the ci_kpi persistence.
+	 *
+	 * @param ci_kpiPersistence the ci_kpi persistence
+	 */
+	public void setci_kpiPersistence(ci_kpiPersistence ci_kpiPersistence) {
+		this.ci_kpiPersistence = ci_kpiPersistence;
 	}
 
 	/**
@@ -977,6 +1054,10 @@ public abstract class periodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.astra.anblicks.pdca.service.achivementFormulaLocalService achivementFormulaLocalService;
 	@BeanReference(type = achivementFormulaPersistence.class)
 	protected achivementFormulaPersistence achivementFormulaPersistence;
+	@BeanReference(type = com.astra.anblicks.pdca.service.addkpi_ciLocalService.class)
+	protected com.astra.anblicks.pdca.service.addkpi_ciLocalService addkpi_ciLocalService;
+	@BeanReference(type = addkpi_ciPersistence.class)
+	protected addkpi_ciPersistence addkpi_ciPersistence;
 	@BeanReference(type = com.astra.anblicks.pdca.service.AstraPdca_CompanyDataLocalService.class)
 	protected com.astra.anblicks.pdca.service.AstraPdca_CompanyDataLocalService astraPdca_CompanyDataLocalService;
 	@BeanReference(type = AstraPdca_CompanyDataPersistence.class)
@@ -989,6 +1070,10 @@ public abstract class periodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.astra.anblicks.pdca.service.AstraPdca_YearLocalService astraPdca_YearLocalService;
 	@BeanReference(type = AstraPdca_YearPersistence.class)
 	protected AstraPdca_YearPersistence astraPdca_YearPersistence;
+	@BeanReference(type = com.astra.anblicks.pdca.service.ci_kpiLocalService.class)
+	protected com.astra.anblicks.pdca.service.ci_kpiLocalService ci_kpiLocalService;
+	@BeanReference(type = ci_kpiPersistence.class)
+	protected ci_kpiPersistence ci_kpiPersistence;
 	@BeanReference(type = com.astra.anblicks.pdca.service.cla_kpiLocalService.class)
 	protected com.astra.anblicks.pdca.service.cla_kpiLocalService cla_kpiLocalService;
 	@BeanReference(type = cla_kpiPersistence.class)
