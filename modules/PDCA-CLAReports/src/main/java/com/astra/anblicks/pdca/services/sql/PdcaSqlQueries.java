@@ -125,7 +125,6 @@ public static List<CompanyDataByUserDto> getCompanyDataBasedOnModuleId_UserId(Co
         	 String sql = "SELECT cu.Pdca_userId as userId,cu.companyId,ads.settings_Id,ads.year,ads.periodId,ads.moduleId,IF(ads.settings_Id is null, 'false', 'true') as flag from pdca_company_user cu LEFT OUTER JOIN pdca_pdca_adminsettings ads on cu.companyId = ads.companyId and ads.moduleId = ? where cu.Pdca_userId = ? group by cu.Pdca_userId,cu.companyId order by cu.companyId";
         	 userListByCompanies_ModuleId = queryRunner.query(conn,sql,resultHandler,moduleId,userId);
 
-              
         	}
 		} catch (Exception e) {
 			

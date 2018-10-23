@@ -108,6 +108,15 @@ public class CLAReportsPortlet extends MVCPortlet {
 	public static Connection conn = PdcaMySqlConnection.getConnection();
 	
 	
+	@Override
+	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+		
+		PdcaSqlQueries.getCompanyDataBasedOnModuleId_UserId(conn, 20156, 1);
+		super.doView(renderRequest, renderResponse);
+	}
+	
+	
 	/** 
 	 * Ajax Method From Jsp
 	 * To Return Back the JsonString of Downloaded Url and Relevant Report Data to Jsp

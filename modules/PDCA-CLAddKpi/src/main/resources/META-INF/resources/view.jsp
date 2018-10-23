@@ -137,7 +137,7 @@ if( PortalUtil.getOriginalServletRequest(request).getParameter("kpiId") != null)
 
 <div class="col-md-12" style="padding-top:10px;" >
  <div class="col-md-4"> OL:</div>
- <div > <input style="width:100px"  id="nontradingInput" type="text" id="_ol" name="_ol" required="required"/>
+ <div > <input style="width:100px"  id="nontradingInput" type="text" id="_ol" name="_ol" required="required" onblur="nontradingprofitInput('nontradingprofit');"/>
   <button type="button" class="btn btn-info tradingproft_"  onclick="editTradingProfit();">Edit Trading Profit</button>
  </div>  
  
@@ -347,6 +347,31 @@ $("#ytdoladiv_").show();
 if(periodIdHide==0){
 	$("#ytdoladiv_").hide();
 }
+
+
+function nontradingprofitInput(val) {
+	$.ajax({  
+		url : '<%=listURL.toString()%>',
+		data : {
+				<portlet:namespace />cmd: val,
+				<portlet:namespace />kpiid: kpiids,	
+				<portlet:namespace />peridId: periodIdHide,
+				<portlet:namespace />olinput: $("#nontradingInput").val(),
+					},
+		type : "POST",
+		dataType : "json",
+		success : function(data) { 
+				console.log(data);		
+			    $("#_achievement").val(data.OL_Achivement);		
+				$("#_clapoint").val(data.Cla_Point);	
+				
+		},	
+		error : function(response) {
+			console.log("Error seen for updateValues");
+			$("#<portlet:namespace />warning").show();
+		}
+	});
+};
 
 
 </script>

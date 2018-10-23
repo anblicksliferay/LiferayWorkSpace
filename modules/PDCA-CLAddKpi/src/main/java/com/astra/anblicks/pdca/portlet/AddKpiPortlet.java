@@ -45,6 +45,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
@@ -303,13 +304,23 @@ public class AddKpiPortlet extends MVCPortlet {
 		else if(cmd.equalsIgnoreCase("cal")) {
 
 			try {
-				String calculationData = CLACalculations.getClaCalculations(Long.parseLong(resourceRequest.getParameter("kpiid")), Long.parseLong(resourceRequest.getParameter("peridId")));
+				String calculationData = CLACalculations.getClaCalculations(Long.parseLong(resourceRequest.getParameter("kpiid")), Long.parseLong(resourceRequest.getParameter("peridId")),StringPool.BLANK,"tradingProfit");
 				 writeJSON(resourceRequest, resourceResponse, JSONFactoryUtil.createJSONObject(calculationData));
 			} catch (NumberFormatException | PortalException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		else if(cmd.equalsIgnoreCase("nontradingprofit")) {
+			try {
+				String calculationData = CLACalculations.getClaCalculations(Long.parseLong(resourceRequest.getParameter("kpiid")), Long.parseLong(resourceRequest.getParameter("peridId")),resourceRequest.getParameter("olinput"),"nontradingProfit");
+				writeJSON(resourceRequest, resourceResponse, JSONFactoryUtil.createJSONObject(calculationData));
+			} catch (NumberFormatException | PortalException e) {
+				// TODO: handle exception
+			}
+		}
+				    
+				    
  }
 	
 	

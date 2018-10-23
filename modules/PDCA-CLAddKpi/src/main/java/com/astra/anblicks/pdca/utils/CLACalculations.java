@@ -15,6 +15,7 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
 
 /**
  * 
@@ -25,11 +26,18 @@ public class CLACalculations {
 	
 	private static Log logger = LogFactoryUtil.getLog(CLACalculations.class.getName());
 	
-	public static String getClaCalculations(long kpiId,long periodId) throws PortalException{
+	public static String getClaCalculations(long kpiId,long periodId,String ol_fy,String itemType) throws PortalException{
 		
 		kpi kpiObject = kpiLocalServiceUtil.getkpi(kpiId);
 		
-		double OL_FY = getTradingProfit(periodId,kpiObject.getCompanyId(),kpiObject.getYear());
+		double OL_FY = 0l;
+		
+		if(ol_fy.equals(StringPool.BLANK) && itemType.equals("tradingProfit")) {
+		    OL_FY = getTradingProfit(periodId,kpiObject.getCompanyId(),kpiObject.getYear());
+		}
+		else {
+		    OL_FY = Double.parseDouble(ol_fy);
+		}
 		double OL_Achivement = 0.00;
 		double Cla_Point = 0.00;
 		
