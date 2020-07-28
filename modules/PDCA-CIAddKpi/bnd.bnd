@@ -1,4 +1,0 @@
-Bundle-Name: PDCA-CIAddKpi
-Bundle-SymbolicName: com.astra.anblicks.pdca.cikpi
-Bundle-Version: 1.0.0
-Export-Package: com.astra.anblicks.pdca.cikpi.constants

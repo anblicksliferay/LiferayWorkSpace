@@ -1,4 +1,0 @@
-Bundle-Name: PDCA-CI
-Bundle-SymbolicName: com.astra.anblicks.pdca.ci
-Bundle-Version: 1.0.0
-Export-Package: com.astra.anblicks.pdca.ci.constants
